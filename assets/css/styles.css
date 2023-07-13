@@ -13,10 +13,11 @@
     width: 100vw;
     height: 100vh;
     grid-template-columns: 3fr 9fr;
+    grid-template-rows: 1fr 10fr 1fr;
     grid-template-areas:
             "header header"
             "navbar main"
-            "footer footer";
+            "footer main";
 }
 
 header {
@@ -159,6 +160,7 @@ footer {
     color: #F8F4E3;
     background: #2A2B2A;
     font-size: 14px;
+    max-width: 350px;
 }
 
 .contact-social-icons {
@@ -179,7 +181,9 @@ footer {
 
 @media (min-width: 578px) and (max-width: 992px) {
     .wrapper {
+        height: auto;
         grid-template-columns: 1fr 2fr;
+        grid-template-rows: 1fr auto auto;
         grid-template-areas:
             "header navbar"
             "main main"
@@ -191,7 +195,11 @@ footer {
     }
 
     header {
+        position: sticky;
+        top: 0;
         padding: 10px;
+        z-index: 1000;
+        max-height: 150px;
     }
 
     header h1 {
@@ -211,17 +219,27 @@ footer {
         grid-area: navbar;
         max-width: 100%;
         border-bottom: 3px solid #2A2B2A;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        max-height: 150px;
     }
 
     nav.menu li a {
         padding: 10px 0;
         font-size: 16px;
     }
+
+    footer {
+        max-width: 100%;
+    }
 }
 
 @media (max-width: 577px) {
     .wrapper {
+        height: auto;
         grid-template-columns: 1fr;
+        grid-template-rows: 1fr auto auto 1fr;
         grid-template-areas:
             "header"
             "navbar"
@@ -250,6 +268,9 @@ footer {
         max-width: 100%;
         border-top: 3px solid #2A2B2A;
         border-bottom: 3px solid #2A2B2A;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
     }
 
     nav.menu ul {
@@ -287,6 +308,10 @@ footer {
 
     main {
         padding: 0 20px;
+    }
+
+    footer {
+        max-width: 100%;
     }
 }
 
